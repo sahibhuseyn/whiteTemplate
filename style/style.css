@@ -247,9 +247,6 @@ body{
 }
 #cleanCode .wrapper .row:nth-child(2)  .cleanBG:hover{
 	background: url('../images/i1.png') no-repeat -5px -124px;
-	width: 50px;
-	height: 50px;
-	margin-bottom: 5px;
 }
 #cleanCode .wrapper .row:nth-child(2)  .supportTBG{
 	background: url('../images/i2.png') no-repeat -3px -64px;
@@ -258,9 +255,6 @@ body{
 }
 #cleanCode .wrapper .row:nth-child(2)  .supportTBG:hover{
 	background: url('../images/i2.png') no-repeat -3px -124px;
-	width: 54px;
-	height: 54px;
-	margin-bottom: 5px;
 }
 #cleanCode .wrapper .row:nth-child(2)  .responsiveBG{
 	background: url('../images/i3.png') no-repeat -4px -68px;
@@ -269,9 +263,6 @@ body{
 }
 #cleanCode .wrapper .row:nth-child(2)  .responsiveBG:hover{
 	background: url('../images/i3.png') no-repeat -4px -128px;
-	width: 52px;
-	height: 46px;
-	margin-bottom: 5px;
 }
 #cleanCode .wrapper .row:nth-child(2)  .documentationBG{
 	background: url('../images/i4.png') no-repeat -8px -65px;
@@ -280,9 +271,6 @@ body{
 }
 #cleanCode .wrapper .row:nth-child(2)  .documentationBG:hover{
 	background: url('../images/i4.png') no-repeat -8px -125px;
-	width: 44px;
-	height: 52px;
-	margin-bottom: 5px;
 }
 #cleanCode .wrapper .row:nth-child(2)  .qualityBG{
 	background: url('../images/i5.png') no-repeat -2px -66px;
@@ -291,9 +279,6 @@ body{
 }
 #cleanCode .wrapper .row:nth-child(2)  .qualityBG:hover{
 	background: url('../images/i5.png') no-repeat -2px -126px;
-	width: 54px;
-	height: 51px;
-	margin-bottom: 5px;
 }
 #cleanCode .wrapper .row:nth-child(2)  .supportBG{
 	background: url('../images/i6.png') no-repeat -6px -67px;
@@ -302,9 +287,10 @@ body{
 }
 #cleanCode .wrapper .row:nth-child(2)  .supportBG:hover{
 	background: url('../images/i6.png') no-repeat -6px -127px;
-	width: 48px;
-	height: 48px;
-	margin-bottom: 5px;
+ }
+ /*this will transform contents 5px top*/
+#cleanCode .wrapper .row:nth-child(2)>*.col2:hover{
+	transform: translateY(-5px);
 }
 #cleanCode .wrapper .row:last-child{
 	display: flex;
@@ -636,7 +622,6 @@ body{
 }
 #footer .aboutUs>.col12:last-child>ul>li{
 	color: #666;
-	/*border: 1px solid #666;*/
 	list-style: none;
 	display: inline;
 }
@@ -686,4 +671,8 @@ body{
     font-size: 13px;
     color: #333;
     background: none;
+}
+#footer .contactUs input[type=submit]:hover{
+	border: 2px solid lightgrey;
+	color: lightgrey;
 }

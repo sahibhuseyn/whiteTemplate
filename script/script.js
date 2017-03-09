@@ -37,7 +37,7 @@ function showSlides(n) {
       slice[i].style.display = "none";
   }
   for (i = 0; i < bullet.length; i++) {
-      bullet[i].className = bullet[i].className.replace(" active", "");
+     bullet[i].className = bullet[i].className.replace(" active", "");
   }
   slice[slideNum-1].style.display = "block";  
   bullet[slideNum-1].className += " active";
