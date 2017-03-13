@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+		<link rel="stylesheet" href="style/reset.css">
+
 </head>
 <body>
 <style>
@@ -61,6 +63,12 @@
 	width:100%;
 	height: 100%;
 	position:relative;
+	opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
 	
 }
 
@@ -73,6 +81,30 @@
 	z-index: 2;
 }
 
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+#frame:hover>img {
+  opacity: 0.3;
+}
+
+#frame:hover .middle {
+  opacity: 1;
+}
+
+.title {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
 </style>
 	<div class="container">
 		<div class="buttons">
@@ -89,6 +121,7 @@
 </html>
 <script type="text/javascript">
 	var imagesArr = ["images/works/1.jpg","images/works/2.jpg","images/works/3.jpg","images/works/4.jpg","images/works/5.jpg","images/works/6.jpg","images/works/7.jpg"];
+	var overImages=["images/zoom.png"];
 	var imageFrameWidth=0;
 	var iteration=0;
 	var container=document.querySelector(".container");
@@ -102,11 +135,21 @@
 			frame=document.createElement("div");
 			frame.setAttribute("id","frame");
 			frame.setAttribute("onmouseenter","overlayOn(this)");
-			frame.setAttribute("onmouseleave","overlayOff(this)");
+			//frame.setAttribute("onmouseleave","overlayOff(this)");
 			img=document.createElement("img");
 			img.setAttribute("src",imagesArr[i]);
 			imageFrame.appendChild(frame);
 			frame.appendChild(img);
+			middle=document.createElement("div");
+			middle.setAttribute("class","middle");
+			frame.appendChild(middle);
+			overImage=document.createElement('img');
+			overImage.setAttribute('src',overImages[0]);
+			title=document.createElement('p');
+			title.setAttribute('class',"title");
+			middle.appendChild(title);
+			middle.appendChild(overImage);
+			title.innerHTML="title";
 			imageFrameWidth+=frame.offsetWidth;
 			imageFrame.style.width= imageFrameWidth + "px";
 			frame.style.width=container.offsetWidth/columnNum + "px";
@@ -133,11 +176,13 @@
 	})
 	function overlayOn(arg){
 		var frameOverlay=document.createElement("div");
+		var overImage = document.createElement('img');
 		frameOverlay.setAttribute("class","frameOverlay");
 		arg.style.border="5px solid white";
+
 	}
-	function overlayOff(arg){
-		arg.removeChild(arg.childNodes[1]);
-		arg.style.border="none";
-	}
+	// function overlayOff(arg){
+	// 	arg.removeChild(arg.childNodes[-1]);
+	// 	arg.style.border="none";
+	// }
 </script>
