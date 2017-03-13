@@ -30,7 +30,7 @@ mainSlider.setAttribute('style',"background-image:url("+imagesMainSlider[i]+")")
 
 /*clean code section this will change titles when clicked*/
 var cleanSpan = ["Clean","Technical","Responsive","Documentation","Quality","Support"];
-var cleanP=["Code","Support"];
+var cleanP=["Code","Support"]; /*ihave some idea abot creating this section with js but there are some things unclear for me i decided that i may ask someone else*/
 
 /*buy this template function (this will change text on a tag )*/
 function changeTxt(txt){
@@ -113,8 +113,14 @@ fprev.addEventListener("click",function(){
 /*team section slider*/
 /*our team's sliders' images arrays here*/
 var sliderOurTeam = ["images/team/1.jpg","images/team/2.jpg","images/team/3.jpg","images/team/4.jpg","images/team/5.jpg","images/team/6.jpg","images/team/7.jpg","images/team/8.jpg"];
-var ourTeamOverImages=["",""]
-/*our team'smain playground*/
+var ourTeamOverIcon={
+  faceTwitter:'<i class="fa fa-facebook-square" aria-hidden="true"></i><i class="fa fa-twitter" aria-hidden="true"></i>',
+  faceTwGoogle:'<i class="fa fa-facebook-square" aria-hidden="true"></i><i class="fa fa-twitter" aria-hidden="true"></i><i class="fa fa-google-plus" aria-hidden="true"></i>',
+}
+var teamMembers=['Sarah Brown','David Jones','Kate Smith','Peter Parker','Jim Moss','John Marks','Julia Anderson','Joe Mades']
+var membersRoles=['Director','Creative Director','Manager','Manager','Designer','Designer','Developer','Developer'];
+
+/*our team's main playground*/
   var teamImageFrameWidth=0;
   var teamSum=0;
   var teamContainer=document.querySelector('.teamContainer');
@@ -128,12 +134,32 @@ var ourTeamOverImages=["",""]
 
       teamFrame=document.createElement("li");
       teamImg=document.createElement("img");
+      teamOverlay=document.createElement("div");
+      membersNames=document.createElement('h2');
+      membersTitle=document.createElement('p');
+      socialIcon=document.createElement('div');
 
       teamFrame.setAttribute("id","tFrame");
       teamImg.setAttribute("src",sliderOurTeam[i]);
+      teamOverlay.setAttribute('id','teamOverlay');
+      membersNames.setAttribute('class','teamMembers');
+      membersTitle.setAttribute('class','membersTitle');
+      socialIcon.setAttribute('class','teamSocialIcon');
 
       teamImageFrame.appendChild(teamFrame);
       teamFrame.appendChild(teamImg);
+      teamFrame.appendChild(teamOverlay);
+      teamOverlay.appendChild(membersNames);
+      teamOverlay.appendChild(membersTitle);
+      teamOverlay.appendChild(socialIcon);
+
+      membersNames.innerHTML=teamMembers[i];
+      membersTitle.innerHTML=membersRoles[i];
+      if(i%2!=0){
+        socialIcon.innerHTML=ourTeamOverIcon.faceTwitter;
+      } else{
+        socialIcon.innerHTML=ourTeamOverIcon.faceTwGoogle; 
+      }
 
       teamImageFrameWidth+=teamFrame.offsetWidth;
       teamImageFrame.style.width= "3200px";
@@ -150,6 +176,7 @@ var ourTeamOverImages=["",""]
     }
     teamImageFrame.style.left=teamSum+ "px";
   })
+
   teamPrev.addEventListener("click",function(){
     teamSum+=teamFrame.clientWidth;
     teamSliderNum--;
@@ -184,18 +211,20 @@ function showSlides(n) {
   bullet[slideNum-1].className += " active";
 }
 /*news section's images overlay images*/
-// var newsImages=document.querySelectorAll("#news .newsBottom .newsImages");
-// var postItemImg=document.querySelectorAll("#news .newsBottom .postItemImg");
+var postItemImages=document.querySelectorAll("#news .newsBottom .postItemImg");
+(function(){
+  for (var i = 0; i < postItemImages.length; i++) {
 
-//  for (var i = 0; i < newsImages.length; i++) {
+   newsImagesDiv=document.createElement("div");
+   newsImagesZoom=document.createElement("img");
 
-//   newsImagesDiv=document.createElement("div");
-//   newsImagesZoom=document.createElement("img");
+   newsImagesDiv.setAttribute("class","newsImagesDiv");
+   newsImagesZoom.setAttribute("class","newsImagesZoom");
 
-//   newsImagesDiv.setAttribute("class","newsImagesDiv");
-//   newsImagesZoom.setAttribute("class","newsImagesZoom");
+  postItemImages[i].appendChild(newsImagesDiv);
+  newsImagesDiv.appendChild(newsImagesZoom);
 
-//   postItemImg.appendChild(newsImagesDiv);
-//   newsImagesDiv.appendChild(newsImagesZoom);
-
-// }
+  newsImagesZoom.setAttribute('src',zoomImage[0]);
+ }
+})()
+  
