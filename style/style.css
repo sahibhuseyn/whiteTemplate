@@ -1,6 +1,9 @@
 body{
 	font-family: 'Roboto', sans-serif;
 }
+*{
+	transition:all .2s ease;
+}
 
 /*menu section*/
 #menu{
@@ -78,9 +81,6 @@ body{
 #slider{
 	width: 100%;
 	height: 585px;
-	background-size: 100%;
-	background-size: cover;
-	background-attachment: fixed;
 }
 #slider .wrapper>.row{
 	width: auto;
@@ -124,7 +124,7 @@ body{
 	list-style: none;
 	display: inline-block;
 }
-#slider .sliderCarousel .row .col2 li>a{
+#slider .sliderCarousel .row .col2 li>span{
     width: 70px;
     height: 70px;
     display: block;
@@ -223,7 +223,7 @@ body{
     color: #fff;
     font-family: 'Roboto', sans-serif;
 }
-#cleanCode .wrapper .row:first-child .col12:first-child p>span{
+#cleanCode .wrapper .row:first-child .col12:first-child p>#cleanCodeTitle{
 	font-weight: 500;
 	font-family: 'Roboto', sans-serif;
 }
@@ -313,7 +313,7 @@ body{
 }
 
 #multiPurpose .wrapper .col7 .col12:first-child h2{
-	margin: 0 0 26px;
+	margin: 0 0 26px 15px;
     line-height: 40px;
     font-size: 40px;
     font-weight: 300;
@@ -353,7 +353,7 @@ body{
 }
 /*featured works*/
 #featuredWorks{
-	width: 100%;
+	/*width: 100%;*/
 	height: 360px;
 	padding-top: 15px;
 }
@@ -386,28 +386,50 @@ body{
 	border: 2px solid #333;
 	color: #333;
 }
-#featuredWorks .container ul{
-	padding-top: 20px;
-	list-style: none;
-	display: inline;
-	display: flex;
+#featuredWorks .containerFeatured{
+	position: relative;
+	clear: both;
+	overflow: hidden;
 }
-#featuredWorks .container ul li{
-	width: 340px;
-	height: 260px;
-
+#featuredWorks .container{
+	width:100%;
+	margin:50px auto;
+	overflow:hidden;
+	padding-top:25px;
+	box-sizing: border-box;
 }
-#featuredWorks .container ul li img{
-	width: 100%;
+#overlay{
+	width:100%;
+	overflow:hidden;
+}
+ #featuredWorks .imageFrame{
+	position:relative;
+	clear:both;
+}
+#frame{
+	width:300px;
+	height:260px;
+	overflow:hidden;
+	box-sizing: border-box;
+	cursor:pointer;
+	float:left;
+	position:relative;
+}
+#frame>img{
+	width:100%;
 	height: 100%;
+	position:relative;
 }
+
+/*overlayfor slider in featured works*/
+
 /*partners section*/
 #partners{
 	width: 100%;
 	background: #fff;
 	height: 240px;
 }
-#partners .wrapper ul{
+#partners .wrapper>ul{
 	padding: 60px;
 	list-style: none;
 	display: inline;
@@ -417,10 +439,10 @@ body{
 	justify-content: space-between;
 	margin-top: 20px;
 }
-#partners .wrapper ul>li img{
+#partners .wrapper>ul>li img{
 	filter: grayscale(100%);
 }
-#partners .wrapper ul>li img:hover{
+#partners .wrapper>ul>li img:hover{
 	filter: none;
 }
 /*team section*/
@@ -462,11 +484,12 @@ body{
 	border: 2px solid #333;
 	color: #333;
 }
-#team .container ul{
+#team .teamImageFrame{
 	padding-top: 50px;
 	list-style: none;
 	display: flex;
 	justify-content: space-between;
+	position: relative;
 }
 /*news section*/
 #news{
@@ -651,6 +674,7 @@ body{
     color: #333;
     background: none;
     border: 2px solid #242424;
+    outline-color: #666;
 }
 #footer .contactUs textarea{
 	resize: none;

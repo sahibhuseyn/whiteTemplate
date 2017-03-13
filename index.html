@@ -12,6 +12,7 @@
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
 	<!--preloader-->
@@ -42,14 +43,15 @@
 					</ul>
 					<form>
 						<i class="fa fa-search" aria-hidden="true"></i>
-						<input type="text" name="search" value="Search">
+						<input type="text" name="search" value="Search" onfocus="if (this.value == 'Search') this.value = '';" onblur="if (this.value == '') this.value = 'Search';"
+						>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 <!--slider section-->
-	<div id="slider" style="background: url(images/slider/slide2_bg.jpg), no-repeat">
+	<div id="slider" style="background: url(images/slider/slide2_bg.jpg) fixed">
 		<div class="wrapper">
 			<div class="row">
 				<div class="col9">
@@ -64,11 +66,11 @@
 			<div class="sliderCarousel">
 				<div class="row">
 					<ul class="col2">
-					<li><a href="#" class="prev" onclick="leftRight(-1)">
+					<li><span onclick="previous()">
 					<i class="fa fa-angle-left" aria-hidden="true">
-					</i></a></li>
-					<li><a href="#" class="next" onclick="leftRight(1)">
-					<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+					</i></span></li>
+					<li><span onclick="next()">
+					<i class="fa fa-angle-right" aria-hidden="true"></i></span></li>
 				</ul>
 				<div class="col4">
 				<ul>
@@ -120,7 +122,7 @@
 		<div class="wrapper">
 			<div class="row">
 				<div class="col12">
-					<p><span>Clean</span> Code</p>
+					<p><span id="cleanCodeTitle">Clean</span> <span id="codeII">Code</span></p>
 				</div>
 				<div class="col12">
 					<p>We tried to make very high-quality product and so our code is very neat and clean. Whatever anyone could improve and modify the template to your liking.</p>
@@ -156,7 +158,7 @@
 					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
 				</div>
 				<div class="col12">
-					<a href="#" ><span>buy this theme</span>
+					<a href="#" ><span onmouseover="changeTxt(this)" onmouseout="changeTxtAbove(this)">buy this theme</span>
 					</a>
 					<a href="#">view more templates</a>
 				</div>
@@ -170,12 +172,14 @@
 <!--Featured works-->
 	<div id="featuredWorks">
 		<div class="wrapper">
-			<div class="row" style="display:flex;justify-content: center; align-items: center;">
+		<!--this row will center contents in itself and will break place between them--> 
+			<div class="row">
 				<div class="col3">
 					<h3><span>Featured</span> Works</h3>
 				</div>
 				<div class="col7"></div>
 				<div class="col2">
+				<!--buttons for slider in featured works-->
 					<div class="left" style="align-items: center; display: flex; justify-content: center">
 					<span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
 					</div>
@@ -185,13 +189,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="row container">
-				<ul>
-					<li><img src="images/works/1.jpg" alt=""></li>
-					<li><img src="images/works/2.jpg" alt=""></li>
-					<li><img src="images/works/3.jpg" alt=""></li>
-					<li><img src="images/works/4.jpg" alt=""></li>
-				</ul>
+		<div class="row">
+			<div class="container">
+				<div id="overlay">
+					<div class="imageFrame"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 <!--partners section-->
@@ -216,20 +219,22 @@
 				</div>
 				<div class="col7"></div>
 				<div class="col2">
-					<div class="left" style="align-items: center; display: flex; justify-content: center">
+				<!-- this team section's leftRight buttons-->
+					<div id="tLeft" style="align-items: center; display: flex; justify-content: center">
 					<span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
 					</div>
-		    		<div class="right" style="justify-content: center; display: flex; align-items: center">
+		    		<div id="tRight" style="justify-content: center; display: flex; align-items: center">
 			    	<span ><i class="fa fa-angle-right" aria-hidden="true"></i></span>
 			    	</div>
 				</div>
 			</div>
-			<div class="row container">
-				<ul>
-					<li><img src="images/team/1.jpg" alt=""></li>
-					<li><img src="images/team/2.jpg" alt=""></li>
-					<li><img src="images/team/3.jpg" alt=""></li>
-				</ul>
+			<div class="row ">
+				<div class="teamContainer">
+					<div id="overlay">
+						<ul class="teamImageFrame"></ul>
+					</div>
+				</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -242,9 +247,9 @@
 						<h3><span>Clients</span> say about us</h3>
 					</div>
 					<div class="col3 dots">
-						<span class="bullets" onclick="currentSlide(1)"></span>
-						<span class="bullets" onclick="currentSlide(2)"></span>
-						<span class="bullets" onclick="currentSlide(3)"></span>
+						<span class="bullets" onclick="prevNext(1)"></span>
+						<span class="bullets" onclick="prevNext(2)"></span>
+						<span class="bullets" onclick="prevNext(3)"></span>
 					</div>
 				</div>
 				<div class="txt">
@@ -257,7 +262,7 @@
 				</div>
 				<div class="txt">
 					<div class="col12">
-					<p>“There is nothing scary in the darkness, if you encounter it face-to-face. The inevitable price we pay for our happiness is eternal fear to lose it. When you start thinking a lot about your past, it becomes your present and you can't see your future without it.”</p>
+					<p>“There was nothing scary in the darkness, if you encounter it face-to-face. The inevitable price we pay for our happiness is eternal fear to lose it. When you start thinking a lot about your past, it becomes your present and you can't see your future without it.”</p>
 					</div>
 					<div class="col12">
 					<p>—  Anna Balashova, <b>Philosopher</b></p>
@@ -265,7 +270,7 @@
 				</div>
 				<div class="txt">
 					<div class="col12">
-					<p>“There is nothing scary in the darkness, if you encounter it face-to-face. The inevitable price we pay for our happiness is eternal fear to lose it. When you start thinking a lot about your past, it becomes your present and you can't see your future without it.”</p>
+					<p>“There were nothing scary in the darkness, if you encounter it face-to-face. The inevitable price we pay for our happiness is eternal fear to lose it. When you start thinking a lot about your past, it becomes your present and you can't see your future without it.”</p>
 					</div>
 					<div class="col12">
 					<p>—  Anna Balashova, <b>Philosopher</b></p>
@@ -381,7 +386,7 @@
 				</div>
 				<div class="col4 contactUs">
 					<h4><span>Contact</span> us</h4>
-					<input type="text" name="name" value="Name" onfocus="if (this.value == 'Name') this.value = '';" onblur="if (this.value == '') this.value = 'Name';" class="">
+					<input type="text" value="Name" onfocus="if (this.value == 'Name') this.value = '';" onblur="if (this.value == '') this.value = 'Name';">
 					<textarea name="message" onfocus="if (this.value == 'Message') this.value = '';" onblur="if (this.value == '') this.value = 'Message';">Message</textarea>
 					<input type="submit" value="Send message">
 				</div>
