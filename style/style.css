@@ -429,27 +429,30 @@ body{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
   text-align: center;
+  background: rgba(0,0,0,.8);
+  width: 100%;
+  height: 100%;
+  color: #666;
+  font-family: 'Roboto',sans-serif;
 }
 
-#frame:hover>img {
+/*#frame:hover>img {
   opacity: 0.3;
-}
+}*/
 
 #frame:hover .featuredMiddle {
   opacity: 1;
 }
 
 .featuredTitle {
-  background-color: #333;
-  color: white;
-  font-size: 16px;
+  margin-top: 50px;
+  font-size: 22px;
   padding: 16px 32px;
+  font-weight: 900;
 }
 .featuredDate{
 	font-size: 12px;
-	padding-left: 22px;
 }
 .featuredMiddle>img{
 	margin-top: 10px;
@@ -530,14 +533,16 @@ body{
 	position: relative;
 }
 #teamOverlay{
+	width: 95%;
+	height: 100%;
+	background: rgba(0,0,0,.8);
 	position: absolute;
-	left: 25%;
-	top: 25%;
+	left: 0%;
+	top: 0%;
 	text-align: center;
 	opacity: 0;
-}
-#tFrame:hover>img{
-	opacity: 0.8;
+	color: #ccc;
+	align-items: center;
 }
 #tFrame:hover #teamOverlay{
 	opacity: 1;
@@ -548,16 +553,22 @@ body{
     font-weight: 400;
     line-height: 24px;
     font-size: 24px;
+	margin-top: 70px;
 }
 #teamOverlay .teamSocialIcon{
 	font-size: 30px;
 	padding-top: 25px;
 }
+
 #teamOverlay .teamSocialIcon>i{
 	border: 1px solid #333;
 	border-radius: 50%;
 	padding: 10px;
 	margin: 5px;
+	opacity: 0.2;
+}
+#teamOverlay .teamSocialIcon>i:hover{
+	opacity: 1;
 }
 /*news section*/
 #news{
@@ -636,27 +647,28 @@ body{
 	margin-bottom: 15px;
 	position: relative;
 }
-#news .newsBottom>.col4>.postItemImg:hover{
-	opacity: 0.2;
-}
 #news .newsBottom>.col4>.postItemImg>img{
 	width: 100%;
 	height: 100%;
 }
 #news .newsBottom>.col4>.postItemImg>.newsImagesDiv{
-	width: 60px;
-	height: 60px;
-	position: absolute;
-	left: 40%;
-	top: 50%;
-	opacity: 0;
+	width: 97%;
+    height: 95%;
+    position: absolute;
+    top: 2%;
+    opacity: 0; 
+    background: rgba(0,0,0,.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease .3s;
 }
+
 #news .newsBottom>.col4>.postItemImg:hover .newsImagesDiv,#news .newsBottom>.col4>.postItemImg>.newsImagesDiv>img:hover{
 	opacity: 1;
 }
 #news .newsBottom>.col4>.postItemImg>.newsImagesDiv>img{
-	width: 100%;
-	opacity: 0.5;
+	opacity: 0.2;
 }
 
 #news .newsBottom>.col4 .col12>a{
@@ -697,9 +709,6 @@ body{
 }
 #footer>.wrapper>.row>.col4>h4>span{
 	font-weight: 600;
-}
-#footer>.wrapper>.row .featuredPosts{
-
 }
 #footer>.wrapper>.row .smallBlog{
 	width: 70px;

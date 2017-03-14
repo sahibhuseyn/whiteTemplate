@@ -89,6 +89,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%)
+  /*background:rgba(0,0,0,.8);*/
+  z-index: 2;
 }
 
 #frame:hover>img {
@@ -134,7 +136,7 @@
 		for (var i = 0; i < imagesArr.length; i++) {
 			frame=document.createElement("div");
 			frame.setAttribute("id","frame");
-			frame.setAttribute("onmouseenter","overlayOn(this)");
+			//frame.setAttribute("onmouseenter","overlayOn(this)");
 			//frame.setAttribute("onmouseleave","overlayOff(this)");
 			img=document.createElement("img");
 			img.setAttribute("src",imagesArr[i]);
@@ -174,13 +176,13 @@
 		}
 		imageFrame.style.left=iteration+ "px";
 	})
-	function overlayOn(arg){
-		var frameOverlay=document.createElement("div");
-		var overImage = document.createElement('img');
-		frameOverlay.setAttribute("class","frameOverlay");
-		arg.style.border="5px solid white";
+	// function overlayOn(arg){
+	// 	var frameOverlay=document.createElement("div");
+	// 	var overImage = document.createElement('img');
+	// 	frameOverlay.setAttribute("class","frameOverlay");
+	// 	arg.style.border="5px solid white";
 
-	}
+	//}
 	// function overlayOff(arg){
 	// 	arg.removeChild(arg.childNodes[-1]);
 	// 	arg.style.border="none";
